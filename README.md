@@ -1,16 +1,13 @@
-## Hi there 👋
+# Hi there, I'm Angel! 👋
 
-<!--
-**Angel-CyberTech/Angel-CyberTech** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+### 🛡️ Aspiring Cybersecurity Professional
+I am currently transitioning from a background in skilled trades into the world of Information Security. I am passionate about defense, ethical hacking, and securing digital infrastructure.
 
-Here are some ideas to get you started:
+- 🔭 I’m currently working on: **IBM Cybersecurity Analyst Professional Certificate**
+- 🌱 I’m currently learning: **Python for Security, Linux, and Network Defense**
+- 📍 Location: **Tampa, FL**
+- ⚡ Fun fact: I enjoy combat sports like MMA and exploring the outdoors.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+### 🛠️ Tech Stack & Tools
+- **OS:** Linux, Android, Windows
+- **Learning:** Python, Nmap, Wireshark, GitHub
