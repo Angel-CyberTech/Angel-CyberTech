@@ -1,0 +1,9 @@
+[user]
+	email = hernandez78218@gmail.com
+	name = Angel-CyberTech
+[credential "https://github.com"]
+	helper = 
+	helper = !/data/data/com.termux/files/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/data/data/com.termux/files/usr/bin/gh auth git-credential
