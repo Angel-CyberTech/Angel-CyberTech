@@ -11,3 +11,6 @@ I am currently transitioning from a background in skilled trades into the world 
 ### 🛠️ Tech Stack & Tools
 - **OS:** Linux, Android, Windows
 - **Learning:** Python, Nmap, Wireshark, GitHub
+## Project 1: Network Reconnaissance
+* **Tools:** Termux, Nmap, Git
+* **Objective:** Scanned a target server to identify open ports (80, 9929) and services.
