@@ -1,4 +1,4 @@
-# Windows Server 2019 Active Directory & Network Services Home Lab
+# Virtual Machine & Windows Server 2019 Active Directory & Windows 10 Client Home Lab
 
 This repository documents the step-by-step deployment and configuration of a virtualized Windows Server 2019 Active Directory environment. The purpose of this lab is to build a secure, isolated private network that includes a fully functional Domain Controller (DC) capable of providing routing (NAT) and dynamic IP addressing (DHCP) to client machines.
 
