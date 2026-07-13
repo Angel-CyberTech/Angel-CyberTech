@@ -8,7 +8,6 @@ This repository documents the step-by-step deployment and configuration of a vir
 - Establish a private internal lab network using VirtualBox internal networking
 - Configure Active Directory Domain Services (AD DS)
 - Implement routing, NAT, and DHCP services for client connectivity
-- Document the process for future expansion, including Windows client deployment
 
 ## Environment Architecture
 
@@ -22,6 +21,8 @@ This repository documents the step-by-step deployment and configuration of a vir
 ## Deployment Checklist
 
 ### Phase 1: Virtual Machine Provisioning & Troubleshooting
+
+![Configured Virtual Machine Settings](assets/Machine-Config.png)
 
 - [x] Sourced the Windows Server 2019 ISO and staged deployment files
 - [x] Created the DC virtual machine in VirtualBox
@@ -66,6 +67,8 @@ During the initial boot attempt, the VM failed to load the installation media an
 
 > Option ROM requires DDIM support
 
+![VirtualBox UEFI Settings Fix](assets/Trouble-Shoot.png)
+
 Resolution:
 1. Powered off the VM and opened VirtualBox Settings.
 2. Navigated to System > Motherboard.
@@ -82,6 +85,8 @@ Before promoting the server to a Domain Controller, the internal NIC was configu
 - Computer Name: DC
 
 ### 3. Active Directory Installation & Domain Promotion
+
+![Active Directory Domain Services Promotion](assets/AD-Install.png)
 
 The Active Directory Domain Services role was added through Server Manager, and the server was promoted to a Domain Controller with the following settings:
 
@@ -109,7 +114,3 @@ The Domain Controller was configured to act as a gateway for future client machi
 - NAT: Enabled through Routing and Remote Access on the external interface
 - DHCP: Configured with an IPv4 scope to automatically assign IP addresses to clients
 - Default Gateway and DNS Server: Pointed to the DC's static IP address
-
-## Next Steps
-
-A Windows 10 client machine can be added next to validate end-to-end connectivity, domain join operations, and user authentication. Once that client is deployed, the next step will be to document the client-side configuration and domain join process.
