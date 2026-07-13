@@ -9,8 +9,8 @@ I am currently transitioning from a background in skilled trades into the world 
 - ⚡ Fun fact: I enjoy combat sports like MMA and exploring the outdoors.
 
 ### 🛠️ Tech Stack & Tools
-- **OS:** Android, Windows
-- **Learning:** Nmap, GitHub
+- **OS:** Android, Windows and Linux
+- **Learning:** Nmap, GitHub, Active Directory and Virtual Machines
 ## Project 1: Network Reconnaissance
 * **Tools:** Termux, Nmap, Git
 * **Objective:** Scanned a target server to identify open ports (80, 9929) and services.
