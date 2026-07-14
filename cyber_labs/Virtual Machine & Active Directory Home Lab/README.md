@@ -4,19 +4,24 @@ This repository documents the step-by-step deployment and configuration of a vir
 
 ## Lab Goals
 
-- Create a working Windows Server 2019 Domain Controller in VirtualBox
-- Establish a private internal lab network using VirtualBox internal networking
-- Configure Active Directory Domain Services (AD DS)
-- Implement routing, NAT, and DHCP services for client connectivity
+- Build a Windows Server 2019 Domain Controller in VirtualBox
+- Establish a secure isolated lab using VirtualBox internal networking
+- Deploy Active Directory Domain Services and create the MyDomain.com forest
+- Implement NAT routing and DHCP services to support client connectivity
+- Automate bulk Active Directory user provisioning with PowerShell
+- Provision and domain-join a Windows 10 Pro client machine
+- Validate DHCP lease assignment, domain integration, and internet routing
+- Document VM hardware allocations and network architecture
 
 ## Environment Architecture
 
 - Hypervisor: Oracle VM VirtualBox
-- Virtual Machine Name: DC
-- Operating System: Windows Server 2019
-- Storage Allocation: 50 GB
-- Memory Allocation: 4 GB RAM
-- Network Layout: Internal Network (intnet)
+- Internal Network: VirtualBox Internal Network (`intnet`)
+- DC VM: Windows Server 2019 with AD DS, DHCP Server, RRAS/NAT
+- CLIENT1 VM: Windows 10 Pro client machine joined to MyDomain.com
+- DC hardware allocation: 6 GB RAM, 2 CPU core, 50 GB storage
+- CLIENT1 hardware allocation: 6 GB RAM, 2 CPU cores, 50 GB storage
+- Network topology: `CLIENT1 -> intnet -> DC (NAT + DHCP) -> Internet`
 
 ## Deployment Checklist
 
@@ -58,6 +63,39 @@ This repository documents the step-by-step deployment and configuration of a vir
 - [x] Configured Routing and Remote Access (RRAS) for NAT support
 - [x] Installed and authorized the DHCP Server role
 - [x] Configured an IPv4 DHCP scope with a default gateway and DNS server pointing to the DC
+
+### Phase 6: Automated Bulk User Provisioning (PowerShell)
+
+- [x] Sourced an open-source Active Directory bulk-user creation PowerShell script from Josh Madakor's GitHub repository
+- [x] Downloaded the compressed ZIP file and extracted the script directory directly onto the DC desktop interface
+- [x] Launched PowerShell ISE explicitly using the Run as Administrator privilege option
+- [x] Opened the script file and executed `Set-ExecutionPolicy Unrestricted` to allow script playback
+- [x] Modified the active directory pathway within the console and launched the script
+- [x] Opened Active Directory Users and Computers (ADUC) to visually confirm that all automated user profiles were successfully generated inside the domain directory
+
+### Phase 7: Windows 10 Client Provisioning & Hardware Baseline
+
+- [x] Created a secondary virtual machine container in VirtualBox Manager using the performance specs outlined in the table below
+- [x] Hardwired Network Adapter 1 directly to the identical Internal Network switch used by the Domain Controller
+- [x] Mounted the Windows 10 installer ISO to the virtual optical drive and initiated system boot
+- [x] Completed a clean installation of Windows 10 Pro, opting for the "limited experience" track during setup to bypass unnecessary cloud bloat
+- [x] Opened the Command Prompt (`cmd`) on the workstation and verified the default gateway address pointed directly to the DC's static IP
+- [x] Executed `ping www.google.com` inside the terminal and confirmed a perfect response (4 packets received, 0 lost)
+
+| Virtual Machine Name | Operating System | Allocated Memory (RAM) | Processor Cores (CPU) | Storage Allocation | Network Mode |
+| --- | --- | --- | --- | --- | --- |
+| DC | Windows Server 2019 | 6 GB | 2 Core | 50.00 GB | Internal Network (`intnet`) |
+| CLIENT1 | Windows 10 Pro | 6 GB | 2 Cores | 50.00 GB | Internal Network (`intnet`) |
+
+### Phase 8: Domain Integration & Central Verification
+
+- [x] Opened Advanced System Settings on the Windows 10 workstation and navigated to the Computer Name / Domain Changes window
+- [x] Renamed the computer to CLIENT1 and changed the membership target from Workgroup to Domain: `MyDomain.com`
+- [x] Authenticated the security handshake using the dedicated domain admin account credentials
+- [x] Triggered a complete system restart on the client machine to apply network boundary updates
+- [x] Swapped back to the DC Server VM to perform administrative verification checks
+- [x] Opened the DHCP Server console and verified the active Address Leases log displayed CLIENT1 with its newly automated IP lease
+- [x] Opened Active Directory Users and Computers to confirm CLIENT1 is formally registered as a trusted computer object inside the domain database
 
 ## Detailed Configuration Notes
 
@@ -114,3 +152,21 @@ The Domain Controller was configured to act as a gateway for future client machi
 - NAT: Enabled through Routing and Remote Access on the external interface
 - DHCP: Configured with an IPv4 scope to automatically assign IP addresses to clients
 - Default Gateway and DNS Server: Pointed to the DC's static IP address
+
+### 6. Temporary PowerShell Execution Policy Change
+
+To safely run the trusted bulk-user provisioning script in this isolated lab, the PowerShell execution policy was temporarily set to `Unrestricted`. This allows the script to execute while keeping the change limited to the lab environment and not recommended for production systems.
+
+### 7. DNS, DHCP, and RRAS Validation
+
+- Confirmed the DC is the authoritative DNS server for `MyDomain.com` and forwards unresolved queries to an external DNS resolver.
+- Verified the DHCP scope includes the correct default gateway, DNS server address, and lease duration for lab clients.
+- Checked RRAS interface bindings to ensure the internal adapter is used for client traffic and the external interface is used for NAT outbound routing.
+- Ensured the DHCP lease list and the ADUC computer container both show `CLIENT1` as an active client object.
+
+### 8. Client Integration Notes
+
+- Client DNS must point to the DC to resolve domain services and complete the domain join.
+- Domain join can fail if the client system time differs from the domain controller by more than 5 minutes, so time sync is important.
+- After joining the domain, a reboot is required before domain credentials become available.
+
