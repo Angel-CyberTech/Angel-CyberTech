@@ -44,6 +44,8 @@ This repository documents the step-by-step deployment and configuration of a vir
 
 ### Phase 3: Active Directory Domain Services Deployment
 
+![Configured Active Directory Domain Forest](assets/AD.png)
+
 - [x] Installed the AD DS role via Server Manager
 - [x] Promoted the server to a Domain Controller
 - [x] Created a new forest with the root domain name MyDomain.com
@@ -63,6 +65,9 @@ This repository documents the step-by-step deployment and configuration of a vir
 - [x] Configured Routing and Remote Access (RRAS) for NAT support
 - [x] Installed and authorized the DHCP Server role
 - [x] Configured an IPv4 DHCP scope with a default gateway and DNS server pointing to the DC
+
+![Configured Active Directory Domain Forest](assets/DHCP Configuraation.png)
+
 
 ### Phase 6: Automated Bulk User Provisioning (PowerShell)
 
