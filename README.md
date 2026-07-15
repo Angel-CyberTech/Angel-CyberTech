@@ -1,6 +1,6 @@
 # Hi there, I'm Angel! 👋
 
-### 🛡️ Aspiring Cybersecurity Professional
+### 🛡️ IT Specialist & Cybersecurity Enthusiast
 I am currently transitioning from a background in skilled trades into the world of Information Security. I am passionate about defense, ethical hacking, and securing digital infrastructure. I am CompTIA A+ Certified and currently pursuing a certification in CompTIA Network+
 
 - 🔭 I’m currently working on: **CompTIA Network+**
