@@ -66,8 +66,7 @@ This repository documents the step-by-step deployment and configuration of a vir
 - [x] Installed and authorized the DHCP Server role
 - [x] Configured an IPv4 DHCP scope with a default gateway and DNS server pointing to the DC
 
-![Configured Active Directory Domain Forest](assets/DHCP Configuraation.png)
-
+![Configured Active Directory Domain Forest](assets\DHCP-Config.png)
 
 ### Phase 6: Automated Bulk User Provisioning (PowerShell)
 
@@ -77,6 +76,8 @@ This repository documents the step-by-step deployment and configuration of a vir
 - [x] Opened the script file and executed `Set-ExecutionPolicy Unrestricted` to allow script playback
 - [x] Modified the active directory pathway within the console and launched the script
 - [x] Opened Active Directory Users and Computers (ADUC) to visually confirm that all automated user profiles were successfully generated inside the domain directory
+
+![Configured Active Directory Domain Forest](assets\Bulk-PS.png)
 
 ### Phase 7: Windows 10 Client Provisioning & Hardware Baseline
 
