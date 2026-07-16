@@ -78,7 +78,7 @@ This repository documents the step-by-step deployment and configuration of a vir
 - [x] Opened Active Directory Users and Computers (ADUC) to visually confirm that all automated user profiles were successfully generated inside the domain directory
 
 ![Configured Active Directory Domain Forest](assets\Bulk-PS.png)
-
+1
 ### Phase 7: Windows 10 Client Provisioning & Hardware Baseline
 
 - [x] Created a secondary virtual machine container in VirtualBox Manager using the performance specs outlined in the table below
