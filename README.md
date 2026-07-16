@@ -11,10 +11,10 @@ I am currently transitioning from a background in skilled trades into the world 
 ### 🛠️ Tech Stack & Tools
 - **OS:** Android, Windows and Linux
 - **Learning:** Nmap, GitHub, Active Directory and Virtual Machines
-## Project 1: Network Reconnaissance
+## [Project 1: Network Reconnaissance](https://github.com/Angel-CyberTech/Angel-CyberTech/blob/main/cyber_labs/port_scan_results.txt)
 * **Tools:** Termux, Nmap, Git
 * **Objective:** Scanned a target server to identify open ports (80, 9929) and services.
-## Project 2: Virtual Machine & Active Directory
+## [Project 2: Virtual Machine & Active Directory](https://github.com/Angel-CyberTech/Angel-CyberTech/tree/main/cyber_labs/Virtual%20Machine%20%26%20Active%20Directory%20Home%20Lab)
 * **OS:** Windows 10 2019 Server, Windows 10 Client OS
 * **Learning:** Active Directory, Virtual Machines
 * **Tools:** Oracle VM VirtualBox Manager, Unified Extensible Firmware Interface (UEFI), Active Directory Domain Services, Active Directory Users and Computers
